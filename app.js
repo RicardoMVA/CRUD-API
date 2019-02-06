@@ -12,6 +12,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(methodOverride('_method'));
 
+let url = process.env.DATABASEURL || 'mongodb://localhost/user';
+
+mongoose.connect(url);
+
+User = require('./models/user');
 
 // Routes:
 
@@ -23,7 +28,14 @@ app.get('/', (req, res) => {
 
 // Create:
 app.post('/users', (req, res) => {
-	res.send('Create new user');
+	User.create(req.body.user, (err, newUser) => {
+		if (err){
+			console.log("Something went wrong when creating the user");
+			console.log(err);
+		} else {
+			res.redirect('/users');
+		}
+	});
 });
 
 
