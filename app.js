@@ -22,7 +22,7 @@ User = require('./models/user');
 
 // Index
 app.get('/', (req, res) => {
-	res.send('Index page');
+	res.render('index');
 });
 
 
