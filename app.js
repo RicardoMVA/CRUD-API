@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(mehtodOverride('_method'));
+app.use(methodOverride('_method'));
 
 
 // Routes:
