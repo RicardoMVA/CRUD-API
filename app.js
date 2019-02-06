@@ -41,7 +41,14 @@ app.post('/users', (req, res) => {
 
 // Read all:
 app.get('/users', (req, res) => {
-	res.send('Read all users');
+	User.find({}, (err, users) => {
+		if (err){
+			console.log("Something went wrong when reading the database");
+			console.log(err);
+		} else {
+			res.send(users);
+		}
+	});
 });
 
 
