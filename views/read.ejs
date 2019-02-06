@@ -1,0 +1,9 @@
+<% include partials/header.ejs %>
+
+<% users.forEach((user) => { %>
+	<a href="users/<%= user._id %>"><%= user.name %></a>
+	<p><%= user.email %></p>
+	<p><%= user.memberSince.toDateString() %></p>
+<% }) %>
+
+<% include partials/footer.ejs %>
