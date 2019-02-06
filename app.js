@@ -15,13 +15,51 @@ app.use(mehtodOverride('_method'));
 
 // Routes:
 
+// Index
 app.get('/', (req, res) => {
 	res.send('Index page');
 });
 
 
-app.get('/api', (req, res) =>{
-	res.json('JSON page');
+// Create:
+app.post('/users', (req, res) => {
+	res.send('Create new user');
+});
+
+
+// Read all:
+app.get('/users', (req, res) => {
+	res.send('Read all users');
+});
+
+
+// Read one:
+app.get('/users/:id', (req, res) => {
+	res.send('Read one user');
+});
+
+
+// Read all (API):
+app.get('/api/users', (req, res) => {
+	res.json('All users JSON page');
+});
+
+
+// Read one (API):
+app.get('/api/users/:id', (req, res) => {
+	res.json('One user JSON page');
+});
+
+
+// Update:
+app.put('/users/:id', (req, res) => {
+	res.send('Update user');
+});
+
+
+// Destroy:
+app.delete('/users/:id', (req, res) => {
+	res.send('Delete user');
 });
 
 
