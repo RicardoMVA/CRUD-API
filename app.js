@@ -46,7 +46,7 @@ app.get('/users', (req, res) => {
 			console.log("Something went wrong when reading the database");
 			console.log(err);
 		} else {
-			res.send(users);
+			res.render('read', {users: users});
 		}
 	});
 });
@@ -60,7 +60,14 @@ app.get('/users/:id', (req, res) => {
 
 // Read all (API):
 app.get('/api/users', (req, res) => {
-	res.json('All users JSON page');
+	User.find({}, (err, users) => {
+		if (err){
+			console.log("Something went wrong when reading the database");
+			console.log(err);
+		} else {
+			res.json(users);
+		}
+	});
 });
 
 
