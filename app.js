@@ -97,7 +97,20 @@ app.get('/api/users/:id', (req, res) => {
 });
 
 
-// Update:
+// Update form:
+app.get('/users/:id/edit', (req, res) => {
+	User.findById(req.params.id, (err, foundUser) => {
+		if (err) {
+			console.log('Something went wrong when finding the user');
+			console.log(err);
+		} else {
+			res.render('edit', {user: foundUser});
+		}
+	});
+});
+
+
+// Update request:
 app.put('/users/:id', (req, res) => {
 	User.findByIdAndUpdate(req.params.id, req.body.user, (err, updatedUser) => {
 		if(err) {
