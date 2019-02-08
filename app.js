@@ -26,7 +26,13 @@ app.get('/', (req, res) => {
 });
 
 
-// Create:
+// Create form:
+app.get('/users/new', (req, res) => {
+	res.render('new');
+});
+
+
+// Create request:
 app.post('/users', (req, res) => {
 	User.create(req.body.user, (err, newUser) => {
 		if (err){
