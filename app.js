@@ -54,7 +54,14 @@ app.get('/users', (req, res) => {
 
 // Read one:
 app.get('/users/:id', (req, res) => {
-	res.send('Read one user');
+	User.findById(req.params.id, (err, foundUser) => {
+		if (err){
+			console.log("Something went wrong when reading the database");
+			console.log(err);
+		} else {
+			res.render('show', {user: foundUser});
+		}
+	});
 });
 
 
