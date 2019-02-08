@@ -4,12 +4,12 @@ let userSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		unique: true,
-		required: [true, 'Name is required']
+		required: [true, 'is required']
 	},
 	email: {
 		type: String,
 		unique: true,
-		required: [true, 'Email is required'],
+		required: [true, 'is required'],
 		validate: {
 			validator: (info) => {
 				// basic email validation with regular expression suggested by MDN in

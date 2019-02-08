@@ -47,7 +47,11 @@ app.post('/users', (req, res) => {
 		if (err){
 			console.log('Something went wrong when creating the user');
 			console.log(err);
-			res.send(err.message);
+			if(err.code === 11000){
+				res.send('User validation failed: email: must be unique');
+			} else {
+				res.send(err.message);
+			}
 		} else {
 			res.redirect('/users');
 		}
