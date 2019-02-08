@@ -5,5 +5,8 @@
 <p><%= user.email %></p>
 <p><%= user.memberSince.toDateString() %></p>
 <a href="/users/<%= user._id %>/edit">Edit user</a>
+<form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+	<button>Delete user</button>
+</form>
 
 <% include partials/footer.ejs %>
