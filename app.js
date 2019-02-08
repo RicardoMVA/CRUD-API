@@ -47,6 +47,7 @@ app.post('/users', (req, res) => {
 		if (err){
 			console.log('Something went wrong when creating the user');
 			console.log(err);
+			res.send(err.message);
 		} else {
 			res.redirect('/users');
 		}
@@ -60,6 +61,7 @@ app.get('/users', (req, res) => {
 		if (err){
 			console.log('Something went wrong when reading the database');
 			console.log(err);
+			res.send(err.message);
 		} else {
 			res.render('read', {users: users});
 		}
@@ -73,6 +75,7 @@ app.get('/users/:id', (req, res) => {
 		if (err){
 			console.log('Something went wrong when reading the database');
 			console.log(err);
+			res.send(err.message);
 		} else {
 			res.render('show', {user: foundUser});
 		}
@@ -112,6 +115,7 @@ app.get('/users/:id/edit', (req, res) => {
 		if (err) {
 			console.log('Something went wrong when finding the user');
 			console.log(err);
+			res.send(err.message);
 		} else {
 			res.render('edit', {user: foundUser});
 		}
@@ -125,6 +129,7 @@ app.put('/users/:id', (req, res) => {
 		if(err) {
 			console.log('Something went wrong when updating the user');
 			console.log(err);
+			res.send(err.message);
 		} else {
 			res.redirect('/users/' + req.params.id);
 		}
@@ -137,6 +142,8 @@ app.delete('/users/:id', (req, res) => {
 	User.findByIdAndRemove(req.params.id, (err) => {
 		if (err){
 			console.log('Could not delete the user');
+			console.log(err);
+			res.send(err.message);
 		} else {
 			res.redirect('/users')
 		}
