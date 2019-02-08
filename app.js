@@ -14,7 +14,7 @@ app.use(methodOverride('_method'));
 
 let url = process.env.DATABASEURL || 'mongodb://localhost/user';
 
-mongoose.connect(url);
+mongoose.connect(url, {useNewUrlParser:true});
 
 User = require('./models/user');
 
