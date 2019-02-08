@@ -18,7 +18,7 @@ app.use(methodOverride('_method'));
 // https://mongoosejs.com/docs/deprecations.html
 mongoose.set('useCreateIndex', true);
 
-// mongoose.set('useFindAndModify', false);
+mongoose.set('useFindAndModify', false);
 
 let url = process.env.DATABASEURL || 'mongodb://localhost/user';
 
