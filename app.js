@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(methodOverride('_method'));
 
+app.use(express.static(__dirname + '/public'));
+
 
 // Mongoose config:
 // Deprecation fixes done as suggested in the docs
