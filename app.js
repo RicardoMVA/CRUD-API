@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(methodOverride('_method'));
 
+mongoose.set('useCreateIndex', true);
+
 let url = process.env.DATABASEURL || 'mongodb://localhost/user';
 
 mongoose.connect(url, {useNewUrlParser:true});
