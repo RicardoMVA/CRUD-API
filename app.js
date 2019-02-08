@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 app.post('/users', (req, res) => {
 	User.create(req.body.user, (err, newUser) => {
 		if (err){
-			console.log("Something went wrong when creating the user");
+			console.log('Something went wrong when creating the user');
 			console.log(err);
 		} else {
 			res.redirect('/users');
@@ -43,7 +43,7 @@ app.post('/users', (req, res) => {
 app.get('/users', (req, res) => {
 	User.find({}, (err, users) => {
 		if (err){
-			console.log("Something went wrong when reading the database");
+			console.log('Something went wrong when reading the database');
 			console.log(err);
 		} else {
 			res.render('read', {users: users});
@@ -56,7 +56,7 @@ app.get('/users', (req, res) => {
 app.get('/users/:id', (req, res) => {
 	User.findById(req.params.id, (err, foundUser) => {
 		if (err){
-			console.log("Something went wrong when reading the database");
+			console.log('Something went wrong when reading the database');
 			console.log(err);
 		} else {
 			res.render('show', {user: foundUser});
@@ -69,7 +69,7 @@ app.get('/users/:id', (req, res) => {
 app.get('/api/users', (req, res) => {
 	User.find({}, (err, users) => {
 		if (err){
-			console.log("Something went wrong when reading the database");
+			console.log('Something went wrong when reading the database');
 			console.log(err);
 		} else {
 			res.json(users);
@@ -82,7 +82,7 @@ app.get('/api/users', (req, res) => {
 app.get('/api/users/:id', (req, res) => {
 	User.findById(req.params.id, (err, foundUser) => {
 		if (err){
-			console.log("Something went wrong when reading the database");
+			console.log('Something went wrong when reading the database');
 			console.log(err);
 		} else {
 			res.json(foundUser);
@@ -95,10 +95,10 @@ app.get('/api/users/:id', (req, res) => {
 app.put('/users/:id', (req, res) => {
 	User.findByIdAndUpdate(req.params.id, req.body.user, (err, updatedUser) => {
 		if(err) {
-			console.log("Something went wrong when updating the user");
+			console.log('Something went wrong when updating the user');
 			console.log(err);
 		} else {
-			res.redirect("/users/" + req.params.id);
+			res.redirect('/users/' + req.params.id);
 		}
 	});
 });
@@ -112,7 +112,7 @@ app.delete('/users/:id', (req, res) => {
 		} else {
 			res.redirect('/users')
 		}
-	})
+	});
 });
 
 
