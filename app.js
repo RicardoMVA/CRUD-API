@@ -106,7 +106,13 @@ app.put('/users/:id', (req, res) => {
 
 // Destroy:
 app.delete('/users/:id', (req, res) => {
-	res.send('Delete user');
+	User.findByIdAndRemove(req.params.id, (err) => {
+		if (err){
+			console.log('Could not delete the user');
+		} else {
+			res.redirect('/users')
+		}
+	})
 });
 
 
