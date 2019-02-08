@@ -12,13 +12,20 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(methodOverride('_method'));
 
+
+// Mongoose config:
+// Deprecation fixes done as suggested in the docs
+// https://mongoosejs.com/docs/deprecations.html
 mongoose.set('useCreateIndex', true);
+
+// mongoose.set('useFindAndModify', false);
 
 let url = process.env.DATABASEURL || 'mongodb://localhost/user';
 
 mongoose.connect(url, {useNewUrlParser:true});
 
 User = require('./models/user');
+
 
 // Routes:
 
