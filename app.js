@@ -93,7 +93,14 @@ app.get('/api/users/:id', (req, res) => {
 
 // Update:
 app.put('/users/:id', (req, res) => {
-	res.send('Update user');
+	User.findByIdAndUpdate(req.params.id, req.body.user, (err, updatedUser) => {
+		if(err) {
+			console.log("Something went wrong when updating the user");
+			console.log(err);
+		} else {
+			res.redirect("/users/" + req.params.id);
+		}
+	});
 });
 
 
