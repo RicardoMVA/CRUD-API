@@ -80,7 +80,14 @@ app.get('/api/users', (req, res) => {
 
 // Read one (API):
 app.get('/api/users/:id', (req, res) => {
-	res.json('One user JSON page');
+	User.findById(req.params.id, (err, foundUser) => {
+		if (err){
+			console.log("Something went wrong when reading the database");
+			console.log(err);
+		} else {
+			res.json(foundUser);
+		}
+	});
 });
 
 
