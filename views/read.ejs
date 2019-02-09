@@ -8,9 +8,9 @@
 				<div class="card-body">
 					<p class="card-text"><span class="bold">ID:</span> <%= user._id %></p>
 					<p class="card-text"><span class="bold">Email:</span> <%= user.email %></p>
-					<p class="card-text"><span class="bold">Member since:</span> <%= user.memberSince.toDateString() %></p>
-					<a href="users/<%= user._id %>"class="btn btn-outline-secondary" role="button">View info</a>
-					<a href="api/users/<%= user._id %>" class="btn btn-outline-secondary" role="button">View in JSON</a>
+					<p class="card-text"><span class="bold">Cadastrado em:</span> <%= user.memberSince.toDateString() %></p>
+					<a href="users/<%= user._id %>"class="btn btn-outline-secondary" role="button">Ver detalhes</a>
+					<a href="api/users/<%= user._id %>" class="btn btn-outline-secondary" role="button">Ver em JSON</a>
 				</div>
 			</div>
 		</div>
