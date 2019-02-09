@@ -1,12 +1,22 @@
 <% include partials/header.ejs %>
 
-<p><%= user._id %></p>
-<p><%= user.name %></p>
-<p><%= user.email %></p>
-<p><%= user.memberSince.toDateString() %></p>
-<a href="/users/<%= user._id %>/edit" class="btn btn-outline-secondary" role="button">Edit user</a>
-<form action="/users/<%= user._id %>?_method=DELETE" method="POST">
-	<button type="submit" class="btn btn-outline-danger">Delete user</button>
-</form>
+<div class="card">
+	<div class="card-header">
+		<%= user.name %>
+	</div>
+
+	<div class="card-body">
+		<p class="card-text">ID: <%= user._id %></p>
+		<p class="card-text">Email: <%= user.email %></p>
+		<p class="card-text">Member since: <%= user.memberSince.toDateString() %></p>
+		
+		<a href="/users/<%= user._id %>/edit" class="btn btn-outline-secondary d-inline" role="button">Edit user</a>
+		
+		<form class="d-inline" action="/users/<%= user._id %>?_method=DELETE" method="POST">
+			<button type="submit" class="btn btn-outline-danger d-inline">Delete user</button>
+		</form>
+	</div>
+</div>
+
 
 <% include partials/footer.ejs %>
