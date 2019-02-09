@@ -1,10 +1,20 @@
 <% include partials/header.ejs %>
 
-<% users.forEach((user) => { %>
-	<a href="users/<%= user._id %>"><%= user.name %></a>
-	<a href="api/users/<%= user._id %>" class="btn btn-outline-secondary" role="button">View in JSON</a>
-	<p><%= user.email %></p>
-	<p><%= user.memberSince.toDateString() %></p>
-<% }) %>
+<div class="card-deck">
+	<% users.forEach((user) => { %>
+		<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+			<div class="card" style="width: 18rem;">
+				<h5 class="card-header text-center"><%= user.name %></h5>
+				<div class="card-body">
+					<p class="card-text">ID: <%= user._id %></p>
+					<p class="card-text">Email: <%= user.email %></p>
+					<p class="card-text">Member since: <%= user.memberSince.toDateString() %></p>
+					<a href="users/<%= user._id %>"class="btn btn-outline-secondary" role="button">View info</a>
+					<a href="api/users/<%= user._id %>" class="btn btn-outline-secondary" role="button">View in JSON</a>
+				</div>
+			</div>
+		</div>
+	<% }) %>
+</div>
 
 <% include partials/footer.ejs %>
