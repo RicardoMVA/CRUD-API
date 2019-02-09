@@ -1,17 +1,24 @@
 <% include partials/header.ejs %>
 
-<form action="/users" method="POST">
-	<div>
-		<label>Name</label>
-		<input type="text" name="user[name]" placeholder="name" required>
-	</div>
+<div class="row">
+	<div class="col-md-12 form-group text-center">
+		<h2>Create new user</h2>
 
-	<div>
-		<label>Email</label>
-		<input type="email" name="user[email]" placeholder="name@email.com" required>
-	</div>
+		<form action="/users" method="POST">
+			<div>
+				<label>Name</label>
+				<input type="text" class="form-control" name="user[name]" placeholder="name" required>
+			</div>
 
-	<button type="submit" class="btn btn-outline-secondary">Create user</button>
-</form>
+			<div>
+				<label>Email</label>
+				<input type="email" class="form-control" name="user[email]" placeholder="name@email.com" required>
+			</div>
+
+			<button type="submit" class="btn btn-outline-secondary mt-2">Create user</button>
+		</form>
+	</div>
+</div>
+
 
 <% include partials/footer.ejs %>

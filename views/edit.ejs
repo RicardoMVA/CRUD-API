@@ -1,17 +1,23 @@
 <% include partials/header.ejs %>
 
-<form action="/users/<%= user._id %>?_method=PUT" method="POST">
-	<div>
-		<label>Name</label>
-		<input type="text" name="user[name]" value="<%= user.name %>" required>
-	</div>
+<div class="row">
+	<div class="col-md-12 form-group text-center">
+		<h2>Edit <%= user.name %></h2>
+		
+		<form action="/users/<%= user._id %>?_method=PUT" method="POST">
+			<div>
+				<label>Name</label>
+				<input type="text" class="form-control" name="user[name]" value="<%= user.name %>" required>
+			</div>
 
-	<div>
-		<label>Email</label>
-		<input type="email" name="user[email]" value="<%= user.email %>" required>
-	</div>
+			<div>
+				<label>Email</label>
+				<input type="email" class="form-control" name="user[email]" value="<%= user.email %>" required>
+			</div>
 
-	<button type="submit" class="btn btn-outline-secondary">Save edit</button>
-</form>
+			<button type="submit" class="btn btn-outline-secondary mt-2">Save edit</button>
+		</form>
+	</div>
+</div>
 
 <% include partials/footer.ejs %>
