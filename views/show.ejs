@@ -5,9 +5,9 @@
 	<h5 class="card-header"><%= user.name %></h5>
 
 	<div class="card-body">
-		<p class="card-text">ID: <%= user._id %></p>
-		<p class="card-text">Email: <%= user.email %></p>
-		<p class="card-text">Member since: <%= user.memberSince.toDateString() %></p>
+		<p class="card-text"><span class="bold">ID:</span> <%= user._id %></p>
+		<p class="card-text"><span class="bold">Email:</span> <%= user.email %></p>
+		<p class="card-text"><span class="bold">Member since:</span> <%= user.memberSince.toDateString() %></p>
 		
 		<a href="/users/<%= user._id %>/edit" class="btn btn-outline-secondary d-inline" role="button">Edit user</a>
 		
