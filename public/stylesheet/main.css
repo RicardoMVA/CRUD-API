@@ -16,3 +16,11 @@
 .bold {
 	font-weight: bold;
 }
+
+
+@media (min-width: 768px) {
+	.form-control {
+		width: 600px;
+		margin: 0 auto;
+	}
+}
