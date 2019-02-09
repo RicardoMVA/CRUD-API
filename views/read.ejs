@@ -2,7 +2,7 @@
 
 <% users.forEach((user) => { %>
 	<a href="users/<%= user._id %>"><%= user.name %></a>
-	<a href="api/users/<%= user._id %>">View in JSON</a>
+	<a href="api/users/<%= user._id %>" class="btn btn-outline-secondary" role="button">View in JSON</a>
 	<p><%= user.email %></p>
 	<p><%= user.memberSince.toDateString() %></p>
 <% }) %>

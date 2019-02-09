@@ -4,9 +4,9 @@
 <p><%= user.name %></p>
 <p><%= user.email %></p>
 <p><%= user.memberSince.toDateString() %></p>
-<a href="/users/<%= user._id %>/edit">Edit user</a>
+<a href="/users/<%= user._id %>/edit" class="btn btn-outline-secondary" role="button">Edit user</a>
 <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
-	<button>Delete user</button>
+	<button type="submit" class="btn btn-outline-danger">Delete user</button>
 </form>
 
 <% include partials/footer.ejs %>
