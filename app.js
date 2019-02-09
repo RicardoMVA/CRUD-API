@@ -1,8 +1,8 @@
-const express 		 = require('express'),
-	  app 			 = express(),
-	  bodyParser 	 = require('body-parser'),
-	  mongoose		 = require('mongoose'),
-	  methodOverride = require('method-override');
+const express 		 = require('express');
+const app 			 = express();
+const bodyParser 	 = require('body-parser');
+const mongoose		 = require('mongoose');
+const methodOverride = require('method-override');
 
 
 // APP config:
