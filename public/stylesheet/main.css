@@ -1,8 +1,13 @@
-.navbar {
+.navbar, .card-header {
 	background-color: rgb(113, 78, 218);
 }
 
 
-.card {
+/* diferentiates 'users' cards from 'users/:id' cards */
+.card-sm {
 	width: 18rem;
+}
+
+.card-header {
+	color: white;
 }
