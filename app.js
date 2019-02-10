@@ -3,9 +3,12 @@ const app 			 = express();
 const bodyParser 	 = require('body-parser');
 const mongoose		 = require('mongoose');
 const methodOverride = require('method-override');
+const env			 = require('dotenv');
 
 
 // APP config:
+env.config();
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
