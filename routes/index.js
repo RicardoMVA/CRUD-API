@@ -7,9 +7,11 @@ const User 	  = require('../models/user');
 function checkErrorType(res, err) {
 	console.log(err);
 	if(err.code === 11000){
-		res.send('User validation failed: email: must be unique');
+		let error = 'User validation failed: email: must be unique';
+		res.render('error', {error: error});
 	} else {
-		res.send(err.message);
+		let error = err.message;
+		res.render('error', {error: error});
 	}
 }
 
