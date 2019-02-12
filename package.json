@@ -10,11 +10,15 @@
   "author": "Ricardo de Melo Valença Alves",
   "license": "ISC",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "method-override": "^3.0.0",
-    "mongoose": "^5.4.10"
+    "mongoose": "^5.4.10",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3"
   }
 }
