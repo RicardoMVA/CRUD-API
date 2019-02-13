@@ -1,12 +1,13 @@
-const express 		 = require('express');
-const app 			 = express();
-const bodyParser 	 = require('body-parser');
-const mongoose		 = require('mongoose');
-const methodOverride = require('method-override');
-const env			 = require('dotenv');
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import methodOverride from 'method-override';
+import env from 'dotenv';
 
 
 // APP config:
+const app = express();
+
 env.config();
 
 app.set('view engine', 'ejs');
