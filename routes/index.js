@@ -1,6 +1,6 @@
 import express from 'express';
 import User from '../models/user';
-import {checkErrorType} from '../controller/functions';
+import * as controller from '../controller/controller';
 
 const router  = express.Router();
 
@@ -21,99 +21,49 @@ router.get('/users/new', (req, res) => {
 
 // Create request:
 router.post('/users', (req, res) => {
-	User.create(req.body.user, (err, newUser) => {
-		if (err){
-			checkErrorType(res, err);
-		} else {
-			res.redirect('/users');
-		}
-	});
+	controller.createUser(req, res);
 });
 
 
 // Read all:
 router.get('/users', (req, res) => {
-	User.find({}, (err, users) => {
-		if (err){
-			checkErrorType(res, err);
-		} else {
-			res.render('read', {users: users});
-		}
-	});
+	controller.readAll(req, res);
 });
 
 
 // Read one:
 router.get('/users/:id', (req, res) => {
-	User.findById(req.params.id, (err, foundUser) => {
-		if (err){
-			checkErrorType(res, err);
-		} else {
-			res.render('show', {user: foundUser});
-		}
-	});
+	controller.readOne(req, res);
 });
 
 
 // Read all (API):
 router.get('/api/users', (req, res) => {
-	User.find({}, (err, users) => {
-		if (err){
-			console.log(err);
-			res.json(err);
-		} else {
-			res.json(users);
-		}
-	});
+	controller.readAllApi(req, res);
 });
 
 
 // Read one (API):
 router.get('/api/users/:id', (req, res) => {
-	User.findById(req.params.id, (err, foundUser) => {
-		if (err){
-			console.log(err);
-			res.json(err);
-		} else {
-			res.json(foundUser);
-		}
-	});
+	controller.readOneApi(req, res);
 });
 
 
 // Update form:
 router.get('/users/:id/edit', (req, res) => {
-	User.findById(req.params.id, (err, foundUser) => {
-		if (err) {
-			checkErrorType(res, err);
-		} else {
-			res.render('edit', {user: foundUser});
-		}
-	});
+	controller.editUserForm(req, res);
 });
 
 
 // Update request:
 router.put('/users/:id', (req, res) => {
-	User.findByIdAndUpdate(req.params.id, req.body.user, (err, updatedUser) => {
-		if(err) {
-			checkErrorType(res, err);
-		} else {
-			res.redirect('/users/' + req.params.id);
-		}
-	});
+	controller.editUser(req, res);
 });
 
 
 // Destroy:
 router.delete('/users/:id', (req, res) => {
-	User.findByIdAndRemove(req.params.id, (err) => {
-		if (err){
-			checkErrorType(res, err);
-		} else {
-			res.redirect('/users')
-		}
-	});
+	controller.deleteUser(req, res);
 });
 
 
