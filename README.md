@@ -1,6 +1,6 @@
 <h1>CRUD API</h1>
 
-<p>Simple CRUD API using Node.js and MongoDB</p>
+<p>Simple CRUD API using Node.js and MongoDB. Also using babel and webpack to use latest JavaScript while keeping backward compatibility.</p>
 
 <p>Check deployed version <a href="https://ricardo-crud-api.herokuapp.com/">here</a>.</p>
 
