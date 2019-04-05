@@ -3,7 +3,7 @@ import User from '../models/user';
 import {checkErrorType} from '../controller/functions';
 
 
-function createUser(req, res){
+const createUser = (req, res) => {
 	User.create(req.body.user, (err, newUser) => {
 		if (err){
 			checkErrorType(res, err);
@@ -14,7 +14,7 @@ function createUser(req, res){
 }
 
 
-function readAll(req, res){
+const readAll = (req, res) => {
 	User.find({}, (err, users) => {
 		if (err){
 			checkErrorType(res, err);
@@ -25,7 +25,7 @@ function readAll(req, res){
 }
 
 
-function readOne(req, res){
+const readOne = (req, res) => {
 	User.findById(req.params.id, (err, foundUser) => {
 		if (err){
 			checkErrorType(res, err);
@@ -36,7 +36,7 @@ function readOne(req, res){
 }
 
 
-function readAllApi(req, res){
+const readAllApi = (req, res) => {
 	User.find({}, (err, users) => {
 		if (err){
 			console.log(err);
@@ -48,7 +48,7 @@ function readAllApi(req, res){
 }
 
 
-function readOneApi(req, res){
+const readOneApi = (req, res) => {
 	User.findById(req.params.id, (err, foundUser) => {
 		if (err){
 			console.log(err);
@@ -60,7 +60,7 @@ function readOneApi(req, res){
 }
 
 
-function editUserForm(req, res){
+const editUserForm = (req, res) => {
 	User.findById(req.params.id, (err, foundUser) => {
 		if (err) {
 			checkErrorType(res, err);
@@ -71,7 +71,7 @@ function editUserForm(req, res){
 }
 
 
-function editUser(req, res){
+const editUser = (req, res) => {
 	User.findByIdAndUpdate(req.params.id, req.body.user, (err, updatedUser) => {
 		if(err) {
 			checkErrorType(res, err);
@@ -82,7 +82,7 @@ function editUser(req, res){
 }
 
 
-function deleteUser(req, res){
+const deleteUser = (req, res) => {
 	User.findByIdAndRemove(req.params.id, (err) => {
 		if (err){
 			checkErrorType(res, err);

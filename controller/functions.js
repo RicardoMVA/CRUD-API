@@ -1,5 +1,5 @@
 // Error messages:
-function checkErrorType(res, err) {
+const checkErrorType = (res, err) => {
 	console.log(err);
 	if(err.code === 11000){
 		let error = 'User validation failed: email and user must be unique';
